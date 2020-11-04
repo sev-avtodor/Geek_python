@@ -13,8 +13,8 @@ def chek(number):
 
 print('2. Переведите время в часы, минуты и секунды и выведите в формате чч:мм:сс')
 user_time = int(input('Сверим часы. Введите время в секундах: '))
-hour = int(user_time / 3600)
-minutes = int((user_time - hour * 3600) / 60)
+hour = int(user_time // 3600)
+minutes = int((user_time / 60) % 60)
 seconds = int(user_time % 60)
 
 hour = chek(hour)
@@ -27,4 +27,4 @@ server_hour = chek(servertime.hour)
 servertime_minute = chek(servertime.minute)
 servertime_second = chek(servertime.second)
 
-print(f'Ваше текущее время: {hour}:{minutes}:{seconds}. Вренмя на моем сервере: {server_hour}:{servertime_minute}:{servertime_second}')
+print(f'Ваше текущее время: {hour}:{minutes}:{seconds}. Время на моем сервере: {server_hour}:{servertime_minute}:{servertime_second}')
