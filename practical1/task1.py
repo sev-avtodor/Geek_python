@@ -2,15 +2,15 @@ print('1. Поработайте с переменными')
 
 
 def experience(user_experience, user_age):
-    if age <= 16:
-        if stag >= 12:
+    if user_age <= 16:
+        if user_experience >= 12:
             text = 'Ого, да Вы матерый зубр Python)'
             return text
         else:
             text = 'Отличный возраст - Вы своеверменно начали изучать Python!)'
             return text
     else:
-        if stag <= 12:
+        if user_experience <= 12:
             text = 'Вы молодец - Мы попробуем углубить Ваши знания Python!)'
             return text
         else:
