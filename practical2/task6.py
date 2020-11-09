@@ -31,19 +31,16 @@ def zapros():
     global base
     global data
     count = 0
-    list_keys = []
+    text_zapros = []
     stroka = base[0]
     items = stroka[1]
     for key in items.keys():
-        print(key)
-        list_keys.append(key)
         for number, tovar in base:
-            data[number] = tovar[key]
-            print(data)
+            text_zapros.append(tovar[key])
+        data[key] = text_zapros
+        text_zapros = []
 
-
-def add_data():
-    pass
 
 
 zapros()
+print(data)
