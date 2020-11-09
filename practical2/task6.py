@@ -27,20 +27,16 @@ base = [
 ]
 data = {}
 
-def zapros():
-    global base
-    global data
-    count = 0
+def zapros(dict1, dict2):
     text_zapros = []
-    stroka = base[0]
+    stroka = dict1[0]
     items = stroka[1]
     for key in items.keys():
-        for number, tovar in base:
+        for number, tovar in dict1:
             text_zapros.append(tovar[key])
-        data[key] = text_zapros
+        dict2[key] = text_zapros
         text_zapros = []
 
 
-
-zapros()
+zapros(base, data)
 print(data)
