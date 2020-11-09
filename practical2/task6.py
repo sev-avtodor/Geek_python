@@ -18,4 +18,32 @@
 “цена”: [20000, 6000, 2000],
 “количество”: [5, 2, 7],
 “ед”: [“шт.”]
-} """
+}"""
+
+base = [
+    (1, {'название': 'компьютер', 'цена': 20000, 'количество': 5, 'eд': 'шт.'}),
+    (2, {'название': 'принтер', 'цена': 6000, 'количество': 2, 'eд': 'шт.'}),
+    (3, {'название': 'сканер', 'цена': 2000, 'количество': 7, 'eд': 'шт.'})
+]
+data = {}
+
+def zapros():
+    global base
+    global data
+    count = 0
+    list_keys = []
+    stroka = base[0]
+    items = stroka[1]
+    for key in items.keys():
+        print(key)
+        list_keys.append(key)
+        for number, tovar in base:
+            data[number] = tovar[key]
+            print(data)
+
+
+def add_data():
+    pass
+
+
+zapros()
