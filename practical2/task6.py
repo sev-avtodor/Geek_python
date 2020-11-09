@@ -25,7 +25,37 @@ base = [
     (2, {'название': 'принтер', 'цена': 6000, 'количество': 2, 'eд': 'шт.'}),
     (3, {'название': 'сканер', 'цена': 2000, 'количество': 7, 'eд': 'шт.'})
 ]
+questions = ('название', 'цена', 'количество', 'ед')
 data = {}
+
+
+def filling_base():
+    global base
+    answer = input('Выберите действие:\n1. Наполнение базы\n2. Аналитика')
+    if answer == 1:
+        while answer != 'stop':
+            i = 0
+            text = {}
+            count = len(base) + 1
+            print('Приступим к наполнению базы.')
+            for question in questions:
+                if i == 0 or i == 3:
+                    answer = input(f'Введите "{questions[i]}": ')
+                else:
+                    answer = int(input(f'Введите "{questions[i]}": '))
+                text[question] = answer
+                print(text)
+                i += 1
+            base.append((count, text))
+            print(f'Товар успешно добавлен\n'
+                  f'{count, text}')
+            answer = input('Продолжить добавление?\n1. Да\n2. Нет')
+            if answer == '2':
+                print('Закончили наполнение')
+                answer = 'stop'
+    else:
+        return False
+
 
 def zapros(dict1, dict2):
     text_zapros = []
@@ -38,5 +68,6 @@ def zapros(dict1, dict2):
         text_zapros = []
 
 
+filling_base()
 zapros(base, data)
 print(data)
