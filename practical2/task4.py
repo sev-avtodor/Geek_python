@@ -14,5 +14,5 @@ def answer_print(answer):
         i += 1
 
 
-user = input('Введите несколько строк разделенных пробелами:\n')
+user = input('Введите несколько слов разделенных пробелами:\n')
 split_str(user)
