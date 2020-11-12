@@ -6,10 +6,12 @@ arguments = {}
 
 def my_func(x, y, z):
     lists = [x, y, z]
-    max_number1 = max(lists)
-    lists.remove(max_number1)
-    max_number2 = max(lists)
-    return max_number1 + max_number2
+    sorted(lists)
+    # max_number1 = max(lists)
+    # lists.remove(max_number1)
+    # max_number2 = max(lists)
+    # return max_number1 + max_number2
+    return lists[-1] + lists[-2]
 
 
 for n, i in enumerate(argument_list):
