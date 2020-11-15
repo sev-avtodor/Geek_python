@@ -5,14 +5,15 @@
 # а в цикле необходимо выводить только первые n чисел, начиная с 1! и до n!.
 # Подсказка: факториал числа n — произведение чисел от 1 до n.
 # Например, факториал четырёх 4! = 1 * 2 * 3 * 4 = 24.
-from itertools import count
-
 
 def fact(n):
-    for i in count(1, 1):
-        if i <= n:
-            i *= i
-            yield i
+    fact = ''
+    for i in range(1, n + 1):
+        if i == 1:
+            fact = 1
+        else:
+            fact = fact * i
+        yield fact
 
 
 for el in fact(int(input('Введите граничное значение: '))):
