@@ -5,10 +5,10 @@
 # Пример исходного списка: [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55].
 # Результат: [12, 44, 4, 10, 78, 123].
 
-list_numbers = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
+lists = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
 
 
-new_list = [el for el in list_numbers if
-            list_numbers.index(el) != 0 and list_numbers[list_numbers.index(el)] > list_numbers[
-                list_numbers.index(el) - 1]]
+new_list = [el for el in lists if
+            lists.index(el) != 0 and lists[lists.index(el)] > lists[
+                lists.index(el) - 1]]
 print(new_list)
