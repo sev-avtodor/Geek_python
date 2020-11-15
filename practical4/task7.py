@@ -7,12 +7,9 @@
 # Например, факториал четырёх 4! = 1 * 2 * 3 * 4 = 24.
 
 def fact(n):
-    fact = ''
+    fact = 1
     for i in range(1, n + 1):
-        if i == 1:
-            fact = 1
-        else:
-            fact = fact * i
+        fact = fact * i
         yield fact
 
 
