@@ -12,4 +12,25 @@
 # [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 #
 # Подсказка: использовать менеджеры контекста.
-with open('', encoding='utf-8') as f:
+list_firm = []
+firm = {}
+firm_noprofit = {}
+average_profit = {'average_profit': 0}
+
+with open('../practical5/task7.txt', encoding='utf-8') as f:
+    while True:
+        for line in f.readlines():
+            line = line.rstrip().split()
+            profit = int(line[2]) - int(line[3])
+            if profit > 0:
+                firm[line[0]] = profit
+                average_profit['average_profit'] = average_profit['average_profit'] + profit
+            else:
+                firm_noprofit[line[0]] = profit
+        average_profit['average_profit'] = average_profit['average_profit'] / (len(firm) + len(firm_noprofit))
+        list_firm.append(firm)
+        list_firm.append(firm_noprofit)
+        list_firm.append(average_profit)
+        break
+
+print(list_firm)
