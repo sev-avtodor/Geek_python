@@ -10,12 +10,12 @@ while True:
 f_obj.close()
 
 # обарзец решения:
-with open('../practical5/task1.txt', '+w') as f:
-    while True:
-        text = input('Введите текст')
-        if text == '':
-            break
-        f_obj.write(text + '\n')
+# with open('../practical5/task1.txt', '+w') as f:
+#     while True:
+#         text = input('Введите текст')
+#         if text == '':
+#             break
+#         f_obj.write(text + '\n')
 
 # на заметку:
 # конструкция условия короче в образце
