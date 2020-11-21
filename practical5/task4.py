@@ -23,3 +23,24 @@ for i, items in enumerate(lines):
         item = 'Четыре - '
     lines[i] = item + items[1]
 print(lines)
+
+# Образец решения:
+with open('../practical5/task4.txt', encoding='utf-8') as f:
+    lines = f.readlines()
+
+
+with open('../practical5/task4rus.txt', 'w', encoding='utf-8') as f:
+    for line in lines:
+        if '1' in line:
+            line = line.replace('One', 'Один')
+        elif '2' in line:
+            line = line.replace('Two', 'Два')
+        elif '3' in line:
+            line = line.replace('Three', 'Три')
+        elif '4' in line:
+            line = line.replace('Four', 'Четыре')
+        f.write(line)
+
+
+# на заметку:
+# не правильно выполнил задание, нужно было не вывести на экран а сохранить в новый файл(
