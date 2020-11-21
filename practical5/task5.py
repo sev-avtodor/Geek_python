@@ -11,7 +11,7 @@ with open('../practical5/task5.txt', 'w', encoding='utf-8') as f:
     f.close()
 
 # образец решения
-# with open('5.txt', 'w') as f:
+# with open('../practical5/task5.txt', 'w') as f:
 #     nums = input('Введите целые числа через пробел: ')
 #     f.write('Введенные числа: ' + nums + '\n')
 #     nums = map(int, nums.split())  # without list
