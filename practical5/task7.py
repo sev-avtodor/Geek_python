@@ -12,9 +12,11 @@
 # [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 #
 # Подсказка: использовать менеджеры контекста.
+import json
+
 list_firm = []
 firm = {}
-firm_noprofit = {}
+firm_nonprofit = {}
 average_profit = {'average_profit': 0}
 
 with open('../practical5/task7.txt', encoding='utf-8') as f:
@@ -26,11 +28,43 @@ with open('../practical5/task7.txt', encoding='utf-8') as f:
                 firm[line[0]] = profit
                 average_profit['average_profit'] = average_profit['average_profit'] + profit
             else:
-                firm_noprofit[line[0]] = profit
-        average_profit['average_profit'] = average_profit['average_profit'] / (len(firm) + len(firm_noprofit))
+                firm_nonprofit[line[0]] = profit
+        average_profit['average_profit'] = average_profit['average_profit'] / (len(firm) + len(firm_nonprofit))
         list_firm.append(firm)
-        list_firm.append(firm_noprofit)
+        list_firm.append(firm_nonprofit)
         list_firm.append(average_profit)
         break
 
+with open('../practical5/task7.json', 'w') as fj:
+    json.dump(list_firm, fj)
+
 print(list_firm)
+
+
+# образец:
+# import json
+#
+# firm_dict = {}
+# average_profit = []
+# with open('7.txt') as f:
+#     lines = f.readlines()
+#     for line in lines:
+#         name, form, revenue, costs = line.split()
+#         profit = int(revenue) - int(costs)
+#         firm_dict[name] = profit
+#         if profit > 0:
+#             average_profit.append(profit)
+#
+# average_profit = sum(average_profit) / len(average_profit)
+# out_info = [firm_dict, {'average_profit': average_profit}]
+#
+# with open('7.json', 'w') as f_json:
+#     json.dump(out_info, f_json)
+#
+# with open('7.json') as f_json:
+#     print(json.load(f_json))
+
+
+# на заметку:
+# забыл про возможность указать соответствие переменным при split
+# разобрать формирование списка в примере
