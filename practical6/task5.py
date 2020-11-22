@@ -6,6 +6,7 @@
 # Для каждого из классов методы должен выводить уникальное сообщение.
 # Создать экземпляры классов и проверить, что выведет описанный метод для каждого экземпляра.
 class Stationery:
+
     def __init__(self, title):
         self.title = title
 
@@ -26,4 +27,12 @@ class Pencil(Stationery):
 class Handle(Stationery):
     def draw(self):
         print(f'{self.title} - красим')
+
+
+pen = Pen('Ручка')
+pencil = Pencil('Карандаш')
+handle = Handle('Маркер')
+pen.draw()
+pencil.draw()
+handle.draw()
 
