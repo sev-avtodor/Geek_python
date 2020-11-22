@@ -7,3 +7,17 @@
 # Проверить работу примера, создав экземпляр и вызвав описанный метод.
 # Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении
 # выводить соответствующее сообщение и завершать скрипт.
+import time
+
+
+class TrafficLight:
+    def running(self):
+        __colors = {'Красный': 7, 'Желтый': 2, 'Зеленый': 3}
+        while True:
+            for color, pause in __colors.items():
+                print(color)
+                time.sleep(pause)
+
+
+trafficLight = TrafficLight()
+trafficLight.running()
