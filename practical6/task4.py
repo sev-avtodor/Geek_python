@@ -20,20 +20,20 @@ class Car:
 
     def go(self):
         # машина поехала
-        print(self.name, '- машина поехала')
+        return self.name + ' - машина поехала'
 
     def stop(self):
         # машина остановилась
-        print(self.name, '- машина остановилась')
+        return self.name + ' - машина остановилась'
 
     def turn(self, direction):
         # машина повернула, куда повернула
-        print(self.name, 'повернула', direction)
+        return self.name + ' повернула ' + direction
 
     def get_show_speed(self, max_speed=None):
         # вывод текущей скорости
         speed_message = f'{self.name}\nТекущая скорость: {self.speed}'
-        print(speed_message)
+        return speed_message
 
 
 class TownCar(Car):
@@ -42,10 +42,10 @@ class TownCar(Car):
         message_error = ''
         if max_speed:
             if self.speed > max_speed:
-                message_error = f'Превышение скорости на {self.speed - max_speed}!' \
+                message_error = f'\nПревышение скорости на {self.speed - max_speed}!' \
                                 f'\nМаксимальная скорость: {max_speed}\n'
-        super().get_show_speed()
-        print(message_error)
+
+        return super().get_show_speed() + message_error
 
 
 class SportCar(Car):
@@ -58,10 +58,10 @@ class WorkCar(Car):
         message_error = ''
         if max_speed:
             if self.speed > max_speed:
-                message_error = f'Превышение скорости на {self.speed - max_speed}!' \
+                message_error = f'\nПревышение скорости на {self.speed - max_speed}!' \
                                 f'\nМаксимальная скорость: {max_speed}\n'
         super().get_show_speed()
-        print(message_error)
+        return super().get_show_speed() + message_error
 
 
 class PoliceCar(Car):
@@ -74,8 +74,9 @@ work_car = WorkCar(65, 'Оранжевый', 'Коммунальная маши�
 police_car = PoliceCar(75, 'Бело-синий', 'Полицейская машина', True)
 
 for car in Car._registry:
-    print('Название: {}, цвет: {}, текущая скорость: {}, полицейская: {}'.format(car.name, car.color, car.speed, car.is_police))
-work_car.get_show_speed()
-sport_car.stop()
-town_car.go()
-police_car.turn('за угол')
+    print('Название: {}, цвет: {}, текущая скорость: {}, полицейская: {}'
+          .format(car.name, car.color, car.speed, car.is_police))
+print(work_car.get_show_speed())
+print(sport_car.stop())
+print(town_car.go())
+print(police_car.turn('за угол'))
