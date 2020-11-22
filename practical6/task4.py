@@ -9,7 +9,10 @@
 # Выполните доступ к атрибутам, выведите результат.
 # Выполните вызов методов и также покажите результат.
 class Car:
+    _registry = []
+
     def __init__(self, speed=None, color=None, name=None, is_police=False):
+        self._registry.append(self)
         self.speed = speed
         self.color = color
         self.name = name
@@ -70,10 +73,8 @@ sport_car = SportCar(120, 'Красный', 'Спорткар')
 work_car = WorkCar(65, 'Оранжевый', 'Коммунальная машина')
 police_car = PoliceCar(75, 'Бело-синий', 'Полицейская машина', True)
 
-print('Название: {}, цвет: {}, текущая скорость: {}, полицейская: {}'.format(town_car.name, town_car.color, town_car.speed, town_car.is_police))
-print('Название: {}, цвет: {}, текущая скорость: {}, полицейская: {}'.format(sport_car.name, sport_car.color, sport_car.speed, sport_car.is_police))
-print('Название: {}, цвет: {}, текущая скорость: {}, полицейская: {}'.format(work_car.name, work_car.color, work_car.speed, work_car.is_police))
-print('Название: {}, цвет: {}, текущая скорость: {}, полицейская: {}'.format(police_car.name, police_car.color, police_car.speed, police_car.is_police))
+for car in Car._registry:
+    print('Название: {}, цвет: {}, текущая скорость: {}, полицейская: {}'.format(car.name, car.color, car.speed, car.is_police))
 work_car.get_show_speed()
 sport_car.stop()
 town_car.go()
