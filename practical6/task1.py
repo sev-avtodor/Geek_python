@@ -11,6 +11,7 @@ import time
 
 
 class TrafficLight:
+
     def running(self):
         __colors = {'Красный': 7, 'Желтый': 2, 'Зеленый': 3}
         while True:
@@ -21,3 +22,26 @@ class TrafficLight:
 
 trafficLight = TrafficLight()
 trafficLight.running()
+
+# =======================образец решения:
+# from time import sleep
+# from itertools import cycle
+#
+#
+# class TrafficLight:
+#
+#     def __init__(self):
+#         self.__color = (('Red', 5), ('Yellow', 2), ('Green', 4))
+#
+#     def running(self):
+#         for color, sec in cycle(self.__color):
+#             print(color, '(wait {} sec)'.format(sec))
+#             sleep(sec)
+#
+#
+# traffic_light = TrafficLight()
+# traffic_light.running()
+
+# =======================работа над ошибками:
+# нужно было задать исходные данные работы сфетофора в конструкторе класса
+# для оптимизации памяти использовать не словарь а кортеж кортежей
