@@ -12,34 +12,43 @@
 # проверить на практике работу декоратора @property.
 from abc import ABC, abstractmethod
 
+
 class Clothes(ABC):
+    summary = []
 
     def __init__(self, name, param):
         self.name = name
         self.param = param
         self.type = ('coat', 'costume')
 
-    @abstractmethod
-    def summ(self):
-        pass
 
+    @abstractmethod
+    def summ(self, param):
+        self.summary.append(int(param))
 
 
 class Coat(Clothes):
+    globals()
 
     @property
     def summ(self):
-        return round(self.param / 6.5 + 0.5)
+        text = round(self.param / 6.5 + 0.5)
+        self.summary.append(text)
+        return text
 
 
 class Costume(Clothes):
+    globals()
 
     @property
     def summ(self):
-        return round(2 * self.param + 0.3)
+        text = round(self.param / 6.5 + 0.5)
+        self.summary.append(text)
+        return text
 
 # def summarry():
 #     return sum(i.summ for i in Clothes.__dict__.values())
+
 
 palto1 = Coat('Снежинка', 35)
 palto2 = Coat('Рабочий', 55)
@@ -47,4 +56,6 @@ costume1 = Costume('Деловой', 175)
 print(palto1.summ)
 print(palto2.summ)
 print(costume1.summ)
-print(f'Общий объем ткани составит: {palto1.summ + palto2.summ + costume1.summ}')
+# Реализовать общий подсчет расхода ткани.
+# print(f'Общий объем ткани составит: {palto1.summ + palto2.summ + costume1.summ}')
+print(sum([int(i) for i in Clothes.summary]))
