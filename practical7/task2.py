@@ -50,9 +50,9 @@ class Costume(Clothes):
 palto1 = Coat('Снежинка', 35)
 palto2 = Coat('Рабочий', 55)
 costume1 = Costume('Деловой', 175)
-print(palto1.summ)
-print(palto2.summ)
-print(costume1.summ)
+print(palto1.name, ':', palto1.summ)
+print(palto1.name, ':', palto2.summ)
+print(palto1.name, ':', costume1.summ)
 # Реализовать общий подсчет расхода ткани.
 # print(f'Общий объем ткани составит: {palto1.summ + palto2.summ + costume1.summ}')
-print(sum([int(i) for i in Clothes.summary]))
+print(f'Общий объем ткани: {sum([int(i) for i in Clothes.summary])}')
