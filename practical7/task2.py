@@ -46,9 +46,6 @@ class Costume(Clothes):
         self.summary.append(text)
         return text
 
-# def summarry():
-#     return sum(i.summ for i in Clothes.__dict__.values())
-
 
 palto1 = Coat('Снежинка', 35)
 palto2 = Coat('Рабочий', 55)
