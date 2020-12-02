@@ -13,19 +13,27 @@ class Matrix:
         self.matrix = data
 
     def __str__(self):
-        for row in self.matrix:
-            for x in row:
-                print("{:4d}".format(x), end="")
-            print()
+        # for row in self.matrix:
+        #     for x in row:
+        #         return '\n'.join(' '.join(str(x)))
+        return '\n'.join(' '.join([str(elem) for elem in line]) for line in self.matrix)
 
     def __add__(self, other):
-        pass
+        text = ''
+        if len(self.matrix) == len(other.matrix):
+            for line1, line2 in zip(self.matrix, other.matrix):
+                if len(line1) != len(line2):
+                    return 'Матрицы разной разрядности'
+
+                summ_line = [x + y for x, y in zip(line1, line2)]
+                text += ' '.join([str(i) for i in summ_line]) + '\n'
+        else:
+            return 'Матрицы разной разрядности'
+        return text
 
 
 matrix1 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-matrix2 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+matrix2 = Matrix([[10, 11, 12], [13, 14, 15], [16, 17, 18]])
 print(matrix1)
-
-# !!!! ИЗВИНИТЕ ИЗ-ЗА РАБОТЫ ОТСТАЮ - ЗА ВЫХОДНЫЕ ДОГОНЮ ОПЯТЬ
-# СДЕЛАЮ ДОПОЛНИТЕЛЬНЫЕ ЗАДАНИЯ
-# ОТВЛЕКСЯ НА НЕДЕЛЕ НА АЛГОРИТМЫ И ЛОГИКУ И ЗАВИС ТАМ
+print('=====')
+print(matrix1 + matrix2)

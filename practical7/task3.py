@@ -42,11 +42,27 @@ class Cell():
     def __truediv__(self, other):
         return f'Произведение клеток {self.number} и {other.number}: {self.param[0] / other.param[0]}, ячеек: {self.param[1] // other.param[1]}'
 
-    def make_order(leight_line, self=None):
+    def make_order(self, leight_line):
         text = ''
-        # for i in range(iMenuNumber):
-            text += '\n'.join(self.param[0])
+        kletok_vsego = self.param[0]
+        kletok_v_stroke = leight_line
+        # while kletok_vsego >= kletok_v_stroke:
+        #     for i in range(kletok_v_stroke):
+        #         text += '*'
+        #     text += '\n'
+        #     kletok_vsego -= kletok_v_stroke
+        # else:
+        #     for i in range(kletok_vsego % kletok_v_stroke):
+        #         text += '*'
+        #     text += '\n'
+        # return text
+        while kletok_vsego >= kletok_v_stroke:
+            text = ''.join('*' for i in range(8)) + '\n'
+            kletok_vsego -= kletok_v_stroke
+        else:
+            text += ''.join('*' for i in range(kletok_vsego % kletok_v_stroke))
         return text
+
 
 kletka1 = Cell(15)
 kletka2 = Cell(2)
@@ -58,5 +74,9 @@ print(kletka4 - kletka3)
 print(kletka3 - kletka2)
 print(kletka1 * kletka4)
 print(kletka1 / kletka4)
-print(Cell.make_order(8))
+print(kletka1.make_order(8))
+# x = '*'
+# text = ''.join('*' for i in range(8))
+# print(text)
+# print(kletka1 + kletka2)
 
