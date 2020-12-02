@@ -80,3 +80,6 @@ print(kletka1.make_order(8))
 # print(text)
 # print(kletka1 + kletka2)
 
+
+# не догадался умножить))
+
